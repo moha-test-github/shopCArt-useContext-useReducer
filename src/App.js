@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter ,Routes,Route} from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Navbar from "./components/Navbar";
+import Profile from "./pages/Profile";
+import Explore from "./pages/Explore";
+import ForgotPassword from "./pages/ForgotPassword";
+import Offers from "./pages/Offers";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <BrowserRouter>
+    <Routes>
+      <Route exact path="/" element={<Explore/>}/>
+      <Route path="/offers" element={<Offers/>}/>
+      <Route path="/profile" element={<PrivateRoute/>}>
+         <Route path="/profile" element={<Profile/>}/>
+      </Route>
+      <Route path="/sign-in" element={<SignIn/>}/>
+      <Route path="/sign-up" element={<SignUp/>}/>
+      <Route path="/Forgot-password" element={<ForgotPassword/>}/>
+    </Routes>
+    <Navbar/>
+    </BrowserRouter>
+    <ToastContainer/>
+    
+    </>
   );
 }
 
