@@ -1,0 +1,31 @@
+.cart-div{
+    width: 70%;
+    margin: 2% auto;
+    background: #f0f0f0;
+    border-radius: 5px;
+}
+.cart-ul{
+    padding: .2rem;
+
+}
+.cart-li{
+    padding: 1rem;
+    border-bottom:.5px solid black ;
+}
+.cart-img{width: 50px;}
+.btn{
+    margin: auto;
+    padding: 0 2%;
+   border: 1px solid blue;
+   background-color: blue;
+   border-radius: 6px;
+    color:#ffffff;
+    cursor: pointer;
+    transition: all ease 3s;
+    font-size: small;
+    overflow: hidden;
+    height:46px;
+    white-space: nowrap;
+    will-change: transform, opacity
+    
+}

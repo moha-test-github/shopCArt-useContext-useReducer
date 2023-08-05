@@ -1,34 +1,29 @@
-import { BrowserRouter ,Routes,Route} from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import Navbar from "./components/Navbar";
-import Profile from "./pages/Profile";
-import Explore from "./pages/Explore";
-import ForgotPassword from "./pages/ForgotPassword";
-import Offers from "./pages/Offers";
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
-import PrivateRoute from "./components/PrivateRoute";
+//import { BrowserRouter ,Routes,Route} from "react-router-dom";
+
+import Nav from './navbar/Nav';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Cart from './pages/Cart';
+import ProductDetail from './pages/ProductDetail';
+import Products from './pages/Products';
+import CartProvider from './store/CartProvider';
+
 
 function App() {
   return (
-    <>
-    <BrowserRouter>
+    <CartProvider>
+    <Nav/>
     <Routes>
-      <Route exact path="/" element={<Explore/>}/>
-      <Route path="/offers" element={<Offers/>}/>
-      <Route path="/profile" element={<PrivateRoute/>}>
-         <Route path="/profile" element={<Profile/>}/>
-      </Route>
-      <Route path="/sign-in" element={<SignIn/>}/>
-      <Route path="/sign-up" element={<SignUp/>}/>
-      <Route path="/Forgot-password" element={<ForgotPassword/>}/>
+      <Route path='/' element={<Home/>}/>
+      <Route exact path="/products" element={<Products/>}/>
+      <Route path="/products/:productId" element={<ProductDetail/>}/>
+      <Route path='/cart' element={<Cart/>}/>
     </Routes>
-    <Navbar/>
-    </BrowserRouter>
-    <ToastContainer/>
-    
-    </>
+   
+   
+
+
+    </CartProvider>
   );
 }
 
